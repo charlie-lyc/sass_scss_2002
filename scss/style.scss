@@ -1,0 +1,77 @@
+// @use 'config';
+@import 'config';
+@import 'utility';
+@import 'button';
+@import 'mobile';
+
+* { 
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: $light-color;
+    font-family: $font-stack;
+    line-height: 1.6;
+}
+
+img {
+    width: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+
+.showcase {
+    height: 600px;
+
+    // background-color: $primary-color;
+    // // color: #fff;
+    // color: set-text-color($primary-color); // Change font color dynamically depending on background(primary) color
+    /////////////////////////////////////////
+    @include set-background($primary-color);
+
+    nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        ul {
+            display: flex;
+            list-style-type: none;
+
+            li {
+                padding: 15px;
+            }
+        }
+    }
+
+    a {
+        // color: #fff;
+        color: set-text-color($primary-color); // Change font color dynamically depending on background(primary) color
+
+        &:hover {
+            color: $secondary-color;
+        }
+    }
+
+    // .showcase-content {}
+    &-content {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 30px;
+
+        img {
+            width: 50%;
+        }
+
+        h1 {
+            font-size: 50px;
+            line-height: 1.2;
+        }
+    }
+}

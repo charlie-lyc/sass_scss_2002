@@ -1,0 +1,26 @@
+$light-color: #f4f4f4;
+$font-stack: Arial, Helvetica, sans-serif;
+$secondary-color: #ff8700;
+
+// $primary-color: #0e6cff;
+/////////////////////////// Switching!!!
+$primary-color: #e0ffff;
+
+
+/**
+* lightness()
+*/
+
+// Set text color based on background
+@function set-text-color($color) { // 폰트 색깔이 배경 색깔의 밝기에 따라 바뀌도록 설정
+    @if(lightness($color) > 70) {
+        @return #333;
+    } @else {
+        @return #fff;
+    }
+}
+
+@mixin set-background($color) { // 페이지의 주 색깔이 바뀌면 배경 색깔과 폰트 색깔도 바뀌도록 설정
+    background-color: $color;
+    color: set-text-color($color);
+}
